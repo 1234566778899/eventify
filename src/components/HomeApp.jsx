@@ -53,9 +53,9 @@ export const HomeApp = () => {
     return (
         <>
             <div className='inter'>
+                <Navbar />
                 <div className='container-sm'>
-                    <Navbar />
-                    <div className='header'>
+                    <div className='header mt-3'>
                         <div>
                             <h1>Eventify</h1>
                             <p>"Espacios que inspiran, eventos que perduran: tu celebración comienza aquí"</p>
@@ -200,8 +200,8 @@ export const HomeApp = () => {
                             <h6 className='fw-bold'>Asistencia</h6>
                             <div className='mt-3' style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 <li>Centro de ayuda</li>
-                                <li>Centro de ayuda</li>
-                                <li>Centro de ayuda</li>
+                                <li>Política de cancelación</li>
+                                <li>Problemas en el vecindario</li>
                             </div>
                         </div>
                         <div>

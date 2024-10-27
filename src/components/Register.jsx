@@ -4,12 +4,9 @@ import { Navbar } from './Navbar'
 export const Register = () => {
     return (
         <>
-            <div className="container">
-                <Navbar />
-            </div>
-            <br />
-            <div className='inter' style={{ display: 'flex', justifyContent: 'center' }}>
-                <div className='card p-3 mb-3' style={{ width: '500px' }}>
+            <Navbar />
+            <div className='inter' style={{ display: 'flex', justifyContent: 'center', fontSize: '0.9rem' }}>
+                <div className='card shadow-sm p-3 my-3' style={{ width: '500px' }}>
                     <h3 className='text-center fw-bold'>Regístrate en Eventify</h3>
                     <form className="space-y-4">
                         <div className="mt-3">

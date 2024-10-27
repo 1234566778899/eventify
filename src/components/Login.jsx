@@ -4,16 +4,14 @@ import { Navbar } from './Navbar'
 export const Login = () => {
     return (
         <>
-            <div className="container">
-                <Navbar />
-            </div>
+            <Navbar />
             <br />
             <br />
             <div className='container inter' style={{ fontSize: '0.9rem' }}>
                 <div className="row">
                     <div className="col-md-4"></div>
                     <div className="col-md-4">
-                        <div className='card p-3'>
+                        <div className='card shadow-sm p-3'>
                             <h4 className='text-center fw-bold'>Iniciar sesión en Eventify</h4>
                             <form className="space-y-4">
                                 <div className="mt-3">
