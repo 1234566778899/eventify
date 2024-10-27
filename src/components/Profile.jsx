@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Navbar } from './Navbar'
+import { useNavigate } from 'react-router-dom'
 
 export const Profile = () => {
     const [optionActive, setoptionActive] = useState('3')
+    const navigate = useNavigate();
     return (
         <div className='container inter'>
             <Navbar />
@@ -67,7 +69,7 @@ export const Profile = () => {
                                 <h4 className='fw-bold'>Mis espacios</h4>
                                 <p style={{ color: 'gray', fontSize: '0.9rem' }}>Administra tus espacios listados aqui.</p>
                                 <p>No tienes espacios listados actualmente.</p>
-                                <button className='btn btn-dark w-25'>Añadir nuevo espacio</button>
+                                <button onClick={() => navigate('/listspace')} className='btn btn-dark w-25'>Añadir nuevo espacio</button>
                             </div>
                         )
                     }
