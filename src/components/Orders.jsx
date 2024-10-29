@@ -60,6 +60,11 @@ export const Orders = () => {
                         }
                     </tbody>
                 </table>
+                {
+                    orders.length == 0 && (
+                        <p className='text-center'>Aún no tiene solicitudes</p>
+                    )
+                }
             </div>
         </>
     )
