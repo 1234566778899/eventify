@@ -91,10 +91,39 @@
     border-radius: 50%;
 }
 
+.content-profile {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    font-size: 0.9rem;
+    gap: 20px;
+}
+
+.content-table {
+    overflow-x: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.footer li {
+    cursor: pointer;
+}
+
+.imgs-preview {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
 @media screen and (max-width:720px) {
     .chat {
         position: fixed;
         bottom: 60px;
         right: 10px;
+    }
+
+    .content-profile {
+        display: flex;
+        flex-direction: column;
     }
 }

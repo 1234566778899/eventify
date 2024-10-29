@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../styles/Home.css'
 import { useNavigate } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Chatbot } from './Chatbot'
+import { AuthContext } from '../contexts/AuthContextApp'
 export const HomeApp = () => {
     const events = [
         {
@@ -49,7 +50,7 @@ export const HomeApp = () => {
         },
     ]
     const navigate = useNavigate();
-
+    const { user } = useContext(AuthContext);
     return (
         <>
             <div className='inter'>
@@ -59,7 +60,7 @@ export const HomeApp = () => {
                         <div>
                             <h1>Eventify</h1>
                             <p>"Espacios que inspiran, eventos que perduran: tu celebración comienza aquí"</p>
-                            <button>Me interesa</button>
+                            <button onClick={() => navigate('/register')}>Me interesa</button>
                         </div>
                     </div>
                     <div className='options'>
@@ -207,7 +208,7 @@ export const HomeApp = () => {
                         <div>
                             <h6 className='fw-bold'>Anfitrión</h6>
                             <div className='mt-3' style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                <li>Pon tu local</li>
+                                <li onClick={() => user ? navigate('/listspace') : navigate('/register')}>Pon tu local</li>
                                 <li>Asesoría</li>
                                 <li>Consultas</li>
                             </div>
