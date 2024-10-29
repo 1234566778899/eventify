@@ -34,28 +34,32 @@ export const MyOrder = () => {
                     </div>
                 )
             }
-            <table className='table mt-4'>
-                <tbody>
-                    <tr className='fw-bold'>
-                        <td>Espacio</td>
-                        <td>Dirección</td>
-                        <td>Precio</td>
-                        <td>Fechas</td>
-                        <td>Total</td>
-                    </tr>
-                    {
-                        orders.map(x => (
-                            <tr key={x._id}>
-                                <td>{x.space.name}</td>
-                                <td>{x.space.address}</td>
-                                <td>S/. {x.space.price}</td>
-                                <td>{x.dates.map(x => moment(x).format('DD/MM/YYYY')).join(' - ')}</td>
-                                <td>S/. {x.space.price * x.dates.length}</td>
+            {
+                orders.length > 0 && (
+                    <table className='table mt-4'>
+                        <tbody>
+                            <tr className='fw-bold'>
+                                <td>Espacio</td>
+                                <td>Dirección</td>
+                                <td>Precio</td>
+                                <td>Fechas</td>
+                                <td>Total</td>
                             </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+                            {
+                                orders.map(x => (
+                                    <tr key={x._id}>
+                                        <td>{x.space.name}</td>
+                                        <td>{x.space.address}</td>
+                                        <td>S/. {x.space.price}</td>
+                                        <td>{x.dates.map(x => moment(x).format('DD/MM/YYYY')).join(' - ')}</td>
+                                        <td>S/. {x.space.price * x.dates.length}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                )
+            }
         </div>
     )
 }

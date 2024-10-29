@@ -18,11 +18,6 @@ export const Profile = () => {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!user) {
-            navigate('/')
-        }
-    }, [user])
     const editInfo = (data) => {
         if (!isLoading) {
             setIsLoading(true);
