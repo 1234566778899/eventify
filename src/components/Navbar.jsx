@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/AuthContextApp';
 export const Navbar = () => {
     const navigate = useNavigate();
     const { user, auth, userInfo } = useContext(AuthContext);
-    return userInfo && (
+    return (
         <div className='shadow-sm inter'>
             <div className="container">
                 <nav>
@@ -18,8 +18,8 @@ export const Navbar = () => {
                     <div className='option-nav' >
                         <ul >
                             {!user && (<li onClick={() => navigate('/register')} style={{ cursor: 'pointer' }}>Trabaja con nosotros</li>)}
-                            {user && userInfo.subscribed && (<li onClick={() => navigate('/orders')} style={{ cursor: 'pointer' }}>Solicitudes</li>)}
-                            {user && !userInfo.subscribed && (<li onClick={() => navigate('/suscribing')} style={{ cursor: 'pointer' }}>Subscripción</li>)}
+                            {user && userInfo && userInfo.subscribed && (<li onClick={() => navigate('/orders')} style={{ cursor: 'pointer' }}>Solicitudes</li>)}
+                            {user && userInfo && !userInfo.subscribed && (<li onClick={() => navigate('/suscribing')} style={{ cursor: 'pointer' }}>Subscripción</li>)}
                             {!user && (<li><button onClick={() => navigate('/login')} className='btn-inicio'>Inicio</button></li>)}
                             {
                                 user && (<li><button onClick={() => navigate('/profile')} className='btn-dark btn'>
