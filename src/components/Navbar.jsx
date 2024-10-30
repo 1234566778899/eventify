@@ -6,6 +6,7 @@ import { AuthContext } from '../contexts/AuthContextApp';
 export const Navbar = () => {
     const navigate = useNavigate();
     const { user, auth, userInfo } = useContext(AuthContext);
+    console.log(userInfo);
     return userInfo && (
         <div className='shadow-sm inter'>
             <div className="container">
