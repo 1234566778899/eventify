@@ -12,7 +12,7 @@ export const Navbar = () => {
                 <nav>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <span onClick={() => navigate('/')}
-                            style={{ cursor: 'pointer', fontSize: '1.3rem', fontWeight: 'bold' }}>Eventify</span >
+                            style={{ cursor: 'pointer', fontSize: '1.3rem', fontWeight: 'bold' }}>Eventify 1.2</span >
                         <input onClick={() => navigate('/explore')} className='ms-5' type="text" placeholder='¿Qué estas buscando?' />
                     </div>
                     <div className='option-nav' >
