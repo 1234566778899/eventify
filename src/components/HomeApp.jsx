@@ -58,7 +58,7 @@ export const HomeApp = () => {
                 <div className='container-sm'>
                     <div className='header mt-3'>
                         <div>
-                            <h1>Eventify 1.1</h1>
+                            <h1>Eventify</h1>
                             <p>"Espacios que inspiran, eventos que perduran: tu celebración comienza aquí"</p>
                             <button onClick={() => navigate('/register')}>Me interesa</button>
                         </div>
