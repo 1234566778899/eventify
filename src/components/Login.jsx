@@ -1,22 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../styles/Register.css'
 import { Navbar } from './Navbar'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { showInfoToast } from '../utils/ShowInfoToast';
+import { AuthContext } from '../contexts/AuthContextApp';
 export const Login = () => {
     const auth = getAuth();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const { getInfoUser } = useContext(AuthContext);
     const onSubmit = (data) => {
         if (!isLoading) {
             setIsLoading(true);
             signInWithEmailAndPassword(auth, data.email.trim(), data.password.trim())
                 .then((res) => {
                     if (res.user.emailVerified) {
+                        getInfoUser();
                         navigate('/profile');
                     } else {
                         showInfoToast("Por favor, verifica tu correo antes de iniciar sesión.");

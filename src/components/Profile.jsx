@@ -42,6 +42,13 @@ export const Profile = () => {
             setTabMessage(true);
         }
     }
+    if (!userInfo) {
+        return (
+            <div >
+                <i className="fa-solid fa-spinner icon-load me-2"></i> Cargando..
+            </div>
+        )
+    }
     return userInfo && (
         <>
             {
