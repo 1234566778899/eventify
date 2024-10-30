@@ -16,7 +16,7 @@ export const Login = () => {
             setIsLoading(true);
             signInWithEmailAndPassword(auth, data.email.trim(), data.password.trim())
                 .then((res) => {
-                    if (!res.user.emailVerified) {
+                    if (res.user.emailVerified) {
                         navigate('/profile');
                     } else {
                         showInfoToast("Por favor, verifica tu correo antes de iniciar sesión.");
