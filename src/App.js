@@ -13,6 +13,10 @@ import { AuthProvider, useFirebaseApp } from 'reactfire';
 import { getAuth } from 'firebase/auth';
 import { Orders } from './components/Orders';
 import { Details } from './components/Details';
+import { Success } from './components/Sucess';
+import { Failure } from './components/Failure';
+import { Pending } from './components/Pending';
+import Suscribing from './components/Suscribing';
 
 function App() {
   const firestoreInstance = getAuth(useFirebaseApp());
@@ -31,6 +35,10 @@ function App() {
             <Route exact path='/details/:id' element={<Details />} />
             <Route exact path='/space/:id' element={<Space />} />
             <Route exact path='/orders' element={<Orders />} />
+            <Route exact path='/suscribing' element={<Suscribing />} />
+            <Route exact path='/success' element={<Success />} />
+            <Route exact path='/failure' element={<Failure />} />
+            <Route exact path='/pending' element={<Pending />} />
           </Routes>
         </AuthContextApp>
       </AuthProvider>

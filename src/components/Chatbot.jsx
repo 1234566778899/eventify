@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 
 export const Chatbot = () => {
-    const phoneNumber = '+51995473965';
+    const phoneNumber = '+51987389495';
     const message = 'Hola, estoy interesado en tus servicios.';
-
-    // Función para codificar el mensaje
     const encodeMessage = (msg) => {
         return encodeURIComponent(msg);
     };

@@ -19,7 +19,7 @@ export const AuthContextApp = ({ children }) => {
     }, [])
     const auth = useAuth();
     return (
-        <AuthContext.Provider value={{ user, auth, userInfo, getInfoUser }}>
+        <AuthContext.Provider value={{ user, auth, userInfo, getInfoUser, setUserInfo }}>
             {children}
         </AuthContext.Provider>
     )

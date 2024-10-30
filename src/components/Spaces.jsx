@@ -5,7 +5,7 @@ import { CONFIG } from '../config';
 import { showInfoToast } from '../utils/ShowInfoToast';
 import { AuthContext } from '../contexts/AuthContextApp';
 
-export const Spaces = () => {
+export const Spaces = ({ onConfirm }) => {
     const [spaces, setSpaces] = useState(null);
     const { user } = useContext(AuthContext);
     const getSpaces = () => {
@@ -29,7 +29,7 @@ export const Spaces = () => {
                         <h4 className='fw-bold'>Mis espacios</h4>
                         <p style={{ color: 'gray', fontSize: '0.9rem' }}>Administra tus espacios listados aqui.</p>
                         <p>No tienes espacios listados actualmente.</p>
-                        <button onClick={() => navigate('/listspace')} className='btn btn-dark'>Añadir nuevo espacio</button>
+                        <button onClick={() => onConfirm()} className='btn btn-dark'>Añadir nuevo espacio</button>
                     </div>
                 )
             }
@@ -37,7 +37,7 @@ export const Spaces = () => {
                 spaces.length > 0 && (
                     <div className='mt-3'>
                         <div className='text-end'>
-                            <button onClick={() => navigate('/listspace')} className='btn btn-dark'>Añadir nuevo espacio</button>
+                            <button onClick={() => onConfirm()} className='btn btn-dark'>Añadir nuevo espacio</button>
                         </div>
                         <div className='content-table card'>
                             <table className='table'>

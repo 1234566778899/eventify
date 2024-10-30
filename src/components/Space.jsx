@@ -6,6 +6,7 @@ import { CONFIG } from '../config';
 import { useNavigate, useParams } from 'react-router-dom';
 import { showInfoToast } from '../utils/ShowInfoToast';
 import { AuthContext } from '../contexts/AuthContextApp';
+import { PaymentApp } from './PaymentApp';
 
 export const Space = () => {
     const [space, setSpace] = useState(null);
@@ -13,6 +14,8 @@ export const Space = () => {
     const [imgSelected, setImgSelected] = useState(0);
     const [selectedDates, setSelectedDates] = useState([]);
     const { user } = useContext(AuthContext);
+    const [openPayment, setOpenPayment] = useState(false);
+    const closePayment = () => setOpenPayment(false);
     const navigate = useNavigate();
     const getSpace = () => {
         axios.get(`${CONFIG.uri}/spaces/retrieve/${id}`)
@@ -23,15 +26,17 @@ export const Space = () => {
                 showInfoToast('Error');
             });
     };
-
-    const reserveSpace = () => {
+    const openPaymentapp = () => {
         if (selectedDates.length === 0) {
             showInfoToast('Por favor seleccione al menos una fecha.');
             return;
         }
+        setOpenPayment(true)
+
+    }
+    const reserveSpace = () => {
 
         const formattedDates = selectedDates.map(date => date.toISOString());
-
         axios.post(`${CONFIG.uri}/reservations`, {
             space: id,
             dates: formattedDates,
@@ -93,12 +98,15 @@ export const Space = () => {
                         <br />
                         <h5 className='fw-bold text-center'>Seleccione las fechas</h5>
                         <Calendar selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
-                        <button onClick={reserveSpace} className="btn btn-dark w-100 mt-4">Reservar ahora</button>
+                        <button onClick={() => openPaymentapp()} className="btn btn-dark w-100 mt-4">Reservar ahora</button>
                         <br />
                         <br />
                     </div>
                 </div>
             </div>
+            {
+                openPayment && (<PaymentApp close={closePayment} amount={space.price} onConfirm={reserveSpace} />)
+            }
         </>
     );
 };
