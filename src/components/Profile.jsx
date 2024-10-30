@@ -42,13 +42,20 @@ export const Profile = () => {
             setTabMessage(true);
         }
     }
+    useEffect(() => {
+        if (!user) {
+            return navigate('/')
+        }
+        getInfoUser();
+    }, [user])
     if (!userInfo) {
         return (
-            <div >
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <i className="fa-solid fa-spinner icon-load me-2"></i> Cargando..
             </div>
         )
     }
+
     return userInfo && (
         <>
             {
