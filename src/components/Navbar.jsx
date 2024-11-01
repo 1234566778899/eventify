@@ -24,10 +24,12 @@ export const Navbar = () => {
                             {
                                 user && (<li><button onClick={() => navigate('/profile')} className='btn-dark btn'>
                                     <i className="fa-solid fa-user me-2"></i>
-                                    Cuenta</button></li>)
+                                    {user.email.split('@')[0]}</button></li>)
                             }
                             {
-                                user && (<a href="#" onClick={() => auth.signOut()}>Cerrar sesión</a>)
+                                user && (<a className='btn btn-outline-dark' href="#" onClick={() => auth.signOut()}>
+                                    <i className="fa-solid fa-right-from-bracket"></i>
+                                </a>)
                             }
                         </ul>
                     </div>
